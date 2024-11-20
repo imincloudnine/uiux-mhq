@@ -1,0 +1,20 @@
+body {font-family: 'Fredoka', sans-serif;}
+
+h2{
+    color: rgb(255, 85, 8);
+}
+
+button {
+    background-color: rgb(19, 92, 96);
+    color: white;
+    border: none;
+    height: 70px;
+    width: 250px;
+    font-family: "Rubik", sans-serif;
+    font-size: larger;
+    border-radius: 10px;
+}
+
+a {
+    color: orange;
+}
