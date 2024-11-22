@@ -1,34 +1,268 @@
-body {font-family: 'Fredoka', sans-serif;}
-
-span {
-  color: rgb(255, 85, 8);
+/* Overall Container */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
-h3 {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 400;
+/* Header Styling */
+.header {
+  width: 80%;
+  height: 90px;
+  padding: 0 10%;
+  border-bottom: 2px solid #D3D3D3; /* Add a bottom border to mimic the line */
+  background-color: #FFFFFF; /* White background */
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1000; /* Ensures the button stays above other content */
 }
 
-ol {
-    font-family: 'Rubik', sans-serif;
+body {
+  font-family: 'Fredoka', sans-serif;
 }
 
-p {
-    font-family: 'Rubik', sans-serif;
-    font-size: small;
-}
-button {
-    background-color: rgb(19, 92, 96);
-    color: white;
-    border: none;
-    height: 70px;
-    width: 250px;
-    font-family: "Rubik", sans-serif;
-    font-size: larger;
-    border-radius: 10px;
-    font-weight: 700;
+/* Navigation Bar */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  justify-content: flex-start; /* Align items to the left */
+  gap: 30px; /* Add spacing between items */
 }
 
-a {
-    color: orange;
+/* Logo Styling */
+nav p {
+  font-size: 40px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Navigation Links */
+nav ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 20px; /* Adjust spacing between items */
+  align-items: left;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  transition: color 0.3s;
+}
+
+/* Right Section for Login and Sign-Up */
+.right-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Spacing between Login and Sign up */
+  margin-left: auto; /* Pushes the right-buttons to the right */
+  font-size: 18px;
+}
+
+.right-buttons a {
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.right-buttons a.login:hover {
+  color: #FF6E20; /* Highlight color on hover */
+}
+
+.right-buttons a.signup {
+  border: 1px solid #ddd; /* Optional border for better visibility */
+  background-color: #EAF9F4; /* Light green background */
+  color: black;
+  padding: 7px 17px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.right-buttons a.signup:hover {
+  background-color: #2DDF98; /* Darker green on hover */
+  color: white;
+}
+
+/* Content Section */
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 10%;
+  position: relative;
+}
+
+.text-box {
+  max-width: 70%; /*50%*/
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text-box h1 {
+  margin-top: 98px;
+  font-size: 64px;
+  font-family: 'Fredoka', sans-serif;
+  letter-spacing: 7px;
+  margin-bottom: 84px;
+  margin-left: 20px;
+  max-width: 700px;
+}
+
+.text-box h1 .highlight {
+  color: #FF6E20; /* Orange color for PHQ-9 */
+  text-decoration: underline;
+}
+
+.text-box h3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 36px;
+  letter-spacing: 3px;
+  margin-left: 20px;
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+
+.text-box p {
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  letter-spacing: 3px;
+  margin-left: 20px;
+  padding: 10px 20px;
+  background-color: #2DDF98; /* Green background */
+  color: #000000; /* Black text */
+  margin-bottom: 16px;
+  border-radius: 30px;
+  line-height: 51px;
+  display: inline-block;
+}
+
+.text-box p .number {
+  font-size: 26px;
+  font-weight: bold;
+  background-color: #FF6E20; /* Orange circle for numbers */
+  color: #FFFFFF; /* White number text */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+/* Astronaut Image */
+.astronaut {
+  text-align: right;
+}
+
+.astronaut img {
+  width: 100%; /* Ensure the image fills its container */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Optional: Add a limit to prevent it from being too large */
+  display: block; /* Prevent extra white spaces around the image */
+}
+
+/* Start Button Section */
+.start-button {
+  margin: 20px auto;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.start-button button {
+  background-color: #135C60;
+  color: white;
+  border: none;
+  height: 70px;
+  width: 250px;
+  font-family: "Rubik", sans-serif;
+  font-size: 30px;
+  letter-spacing: 7px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 68px;
+  transition: background-color 0.3s;
+  padding: 15px 40px;
+}
+
+.start-button button:hover {
+  background-color: #00332e;
+}
+
+.start-button p {
+  font-size: 14px;
+  margin-top: 10px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.start-button p .terms {
+  color: #FF6E20;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Rubik', sans-serif;
+}
+
+.call {
+  position: fixed; /* Makes the button fixed on the screen */
+  right: 47px; /* Distance from the right edge of the viewport */
+  bottom: 63px; /* Distance from the bottom edge of the viewport */
+  z-index: 1000; /* Ensures the button stays above other content */
+}
+
+.call button {
+  background-color: #135C60; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: 100px; /* Rounded corners */
+  padding: 24px 24px; /* Padding inside the button */
+  font-size: 24px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  
+}
+
+.call button:hover {
+  background-color: #00332e; /* Darker color on hover */
+}
+
+/*decorate*/
+.dec {
+  margin: auto;
+}
+.dec img{
+  /* Scene/Abstract */
+
+  position: absolute;
+  width: 800px;
+  height: 765px;
+  left: -690px;
+  top: 47px;
+}
+
+.dec2 img {
+  /* Ellipse 1 */
+
+  position: absolute;
+  width: 211px;
+  height: 190px;
+  left: 4px;
+  top: 890px;
 }
