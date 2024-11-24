@@ -37,10 +37,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  justify-content: flex-start;
+  justify-content: flex-end;
   /* Align items to the left */
-  gap: 30px;
-  /* Add spacing between items */
 }
 
 /* Logo Styling */
@@ -55,6 +53,10 @@ nav p {
 nav p a {
   text-decoration: none;
   color: #000000;
+  height: 100%;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
 }
 
 /* Navigation Links */
@@ -97,17 +99,17 @@ nav p a {
   }
 }
 nav ul {
+  width: 100%;
+  list-style: none;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  margin: 0;
-  padding: 0;
 }
 
 nav ul li {
   list-style: none;
-  margin: 0 20px;
+  padding: 0px 30px;
   /* Adjust spacing between items */
-  align-items: left;
 }
 
 nav ul li a {
@@ -117,50 +119,6 @@ nav ul li a {
   font-weight: 600;
   color: black;
   transition: color 0.3s;
-}
-
-/* Right Section for Login and Sign-Up */
-
-.right-buttons {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  /* Spacing between Login and Sign up */
-  margin-left: auto;
-  /* Pushes the right-buttons to the right */
-  font-size: 18px;
-}
-
-.right-buttons a {
-  text-decoration: none;
-  font-weight: 600;
-  color: black;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-.right-buttons a.login:hover {
-  color: #FF6E20;
-  /* Highlight color on hover */
-}
-
-.right-buttons a.signup {
-  border: 1px solid #ddd;
-  /* Optional border for better visibility */
-  background-color: #EAF9F4;
-  /* Light green background */
-  color: black;
-  padding: 7px 17px;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: 600;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.right-buttons a.signup:hover {
-  background-color: #2DDF98;
-  /* Darker green on hover */
-  color: white;
 }
 
 /* Content Section */
@@ -333,9 +291,9 @@ nav ul li a {
   /* No border */
   border-radius: 100px;
   /* Rounded corners */
-  padding: 24px 24px;
+  padding: 20px 20px;
   /* Padding inside the button */
-  font-size: 24px;
+  font-size: 20px;
   /* Font size */
   cursor: pointer;
   /* Pointer cursor on hover */
@@ -371,4 +329,147 @@ nav ul li a {
   left: 4px;
   top: 890px;
 }
+
+/* For Tablets and Medium-Sized Screens */
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    padding: 0 5%;
+  }
+
+  nav p {
+    font-size: 35px;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    padding: 10px 0;
+  }
+
+  .text-box h1 {
+    font-size: 48px;
+    margin-bottom: 50px;
+  }
+
+  .text-box h3 {
+    font-size: 24px;
+  }
+
+  .text-box p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .astronaut img {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .start-button button {
+    width: 200px;
+    font-size: 24px;
+    padding: 10px 20px;
+  }
+
+  .dec{
+    display: none;
+  }
+  .call button{
+    padding: 10px 10px;
+    font-size: 14px;
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 480px) {
+  .header {
+    height: 70px;
+    padding: 0 3%;
+  }
+
+  nav ul {
+    display: none; /* Hide nav items; use menu button instead */
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .text-box h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .text-box h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .text-box p {
+    font-size: 14px;
+    padding: 5px 10px;
+    line-height: 18px;
+  }
+
+  .astronaut img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .start-button button {
+    width: 150px;
+    font-size: 20px;
+    padding: 8px 16px;
+  }
+
+  .call button {
+    padding: 10px 10px;
+    font-size: 14px;
+  }
+
+  .dec{
+    display: none;
+  }
+}
+
+/* For Extra Small Devices */
+@media (max-width: 320px) {
+  .text-box h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .text-box h3 {
+    font-size: 18px;
+  }
+
+  .text-box p {
+    font-size: 12px;
+    padding: 5px;
+    line-height: 16px;
+  }
+
+  .astronaut img {
+    width: 90%;
+  }
+
+  .start-button button {
+    width: 120px;
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+
+  .call button {
+    padding: 10px 10px;
+    font-size: 14px;
+  }
+
+  .dec{
+    display: none;
+  }
+}
+
 
