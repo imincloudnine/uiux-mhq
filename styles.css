@@ -1,0 +1,318 @@
+@font-face {
+    font-family: 'Gravitica';
+    src: url('fonts/ckhans-fonts-gravitica-light-demo.otf') format('opentype');
+    font-weight: 300; /* Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AsapCondensed';
+    src: url('fonts/AsapCondensed-Regular.ttf') format('truetype');
+    font-weight: 300; /*light*/
+    font-style: normal;
+}
+
+/* font and background */
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+    color: rgb(0, 0, 0);
+}
+
+h1, h2 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* Header Styling */
+.header {
+    width: 80%;
+    height: 90px;
+    padding: 0 10%;
+    border-bottom: 2px solid #D3D3D3; /* Add a bottom border to mimic the line */
+    background-color: #FFFFFF; /* White background */
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1000; /* Ensures the button stays above other content */
+}
+
+/*navigation bar*/
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    justify-content: flex-start; /* Align items to the left */
+    gap: 30px;
+}
+
+/*logo styling*/
+nav p {
+    font-size: 40px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    margin: 0;
+}
+
+/*navigation links*/
+nav ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 20px;
+    align-items: normal;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    transition: color 0.3s;
+}
+
+.right-buttons {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.right-buttons a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.right-buttons a.login:hover {
+    color: #FF6E20;
+}
+
+.right-buttons a.signup {
+    border: 1px solid #ddd;
+    background-color: #EAF9F4;
+    color: black;
+    padding: 7px 17px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.right-buttons a.signup:hover {
+    background-color: #2DDF98;
+    color: white;
+}
+
+/* Center Question Box */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+}
+
+/* Question Box */
+#question-box {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 1000px;
+    width: 700px;
+    text-align: left;
+    margin-top: 140px;
+}
+
+#question-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+#question-text {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+}
+
+/* Form Styling */
+#question-form label {
+    display: block;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+/* Options Styling */
+.options-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 650px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.options-box .option {
+    font-size: 1rem;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.options-box .option input {
+    margin-right: 10px;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#progress-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 10px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #00a86b;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+#progress-bar.complete {
+    background-color: green;
+}
+
+/* Button Container for Back, Next, and Submit */
+.button-container {
+    display: flex; /* Atur tombol dalam satu baris */
+    justify-content: space-between; /* Beri jarak antar tombol */
+    align-items: center; /* Rata vertikal */
+    margin-bottom: 20px; /* Beri jarak antara tombol dan progress bar */
+}
+
+/* Styling untuk tombol */
+/*
+.button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Fredoka', sans-serif;
+    background-color: #00a86b; Warna tombol
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #007e50; Warna tombol saat hover
+}
+
+.button-container button:disabled {
+    background-color: #ccc; Warna tombol jika disabled
+    cursor: not-allowed;
+}
+*/
+
+/* Styling for triangle buttons */
+.triangle-btn {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Position at the vertical center */
+    transform: translateY(-50%); /* Adjust for centering */
+}
+
+.triangle-btn.left {
+    border-width: 25px 40px 25px 0; /* Creates left-facing triangle */
+    border-color: transparent #00a86b transparent transparent;
+    left: -40px; /* Position to the left of question box */
+}
+
+.triangle-btn.left:hover {
+    border-color: transparent #007e50 transparent transparent; /* Darker color on hover */
+}
+
+.triangle-btn.right {
+    border-width: 25px 0 25px 40px; /* Creates right-facing triangle */
+    border-color: transparent transparent transparent #00a86b;
+    right: -30px; /* Position to the right of question box */
+}
+
+.triangle-btn.right:hover {
+    border-color: transparent transparent transparent #007e50; /* Darker color on hover */
+}
+
+/* Styling for submit button */
+.submit-btn {
+    padding: 15px 30px; /* Membuat tombol lebih besar */
+    font-size: 18px; /* Memperbesar ukuran font */
+    font-family: 'Fredoka', sans-serif;
+    background-color: #00a86b; /* Warna hijau seperti tombol lain */
+    color: white;
+    border: none;
+    border-radius: 10px; /* Membuat sudut lebih rounded */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Menambahkan sedikit jarak antara tombol dan elemen sebelumnya */
+    width: 100%; /* Tombol memenuhi lebar kontainer */
+}
+
+/* Hover state untuk submit button */
+.submit-btn:hover {
+    background-color: #007e50; /* Warna lebih gelap saat hover */
+}
+
+.submit-btn:disabled {
+    background-color: #ccc; /* Warna jika tombol disabled */
+    cursor: not-allowed;
+}
+
+
+/* Ensure the question box has relative positioning for proper placement */
+#question-box {
+    position: relative;
+    padding: 30px;
+}
+
+
+/* Dekorasi */
+.dec1 img { 
+    position: absolute;
+    width: 211px;
+    height: 190px;
+    left: 4px;
+    top: 500px;
+}
