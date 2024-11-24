@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <title>PHQ-9 Questions</title>
+    </head>
+
+    <body>
+        <!--  Bagian Header -->
+        <div class="header">
+            <nav>
+              <p>Mental Health Survey</p>
+              <ul>
+                <li><a href="#">Learn about mental health</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">About Us</a></li>
+              </ul>
+              <div class="right-buttons">
+                <a href="#" class="login">Login</a>
+                <a href="#" class="signup">Sign up</a>
+              </div>
+            </nav>
+            
+          </div>
+    
+        <!-- Bagian Pertanyaan dan Opsi -->
+        <main>
+            <div id="question-box">
+                <div id="question-container">
+                    <h2 id="question-title">Question 1</h2>
+                    <p >Over the last two weeks, how often have you been bothered by any of the following problems?</p>
+                    <p id="question-text">Little interest or pleasure in doing things</p>
+                    <form id="question-form">
+                        <div class="options-box">
+                            <!-- Opsi jawaban akan disisipkan di sini -->
+                            <div class="option">
+                                <input type="radio" name="response" value="0" id="option-1">
+                                <label for="option-1">Not at all</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="response" value="1" id="option-2">
+                                <label for="option-2">Several days</label>
+                            </div>
+                            <div class="option">
+                                
+                                <input type="radio" name="response" value="2" id="option-3"> 
+                                <label for="option-3">More than half the days</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="response" value="3" id="option-4"> 
+                                <label for="option-4">Nearly everyday</label>
+                            </div>
+                        </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button id="prev-btn" class="triangle-btn triangle-left" onclick="prevQuestion()" disabled></button>
+                <button id="next-btn" class="triangle-btn triangle-right" onclick="nextQuestion()"></button>
+            </div>
+            
+            <button id="submit-btn" style="display: none;">Submit</button>
+
+            <div class="dec2">
+                <img src="dec2.png" alt="dec2">
+            </div>
+        </main>
+
+        <footer>
+            <p>Your progress:</p>
+            <p id="progress-percentage">0% to complete</p>
+            <div style="background: #ddd; width: 100%; height: 20px; border-radius: 5px; overflow: hidden;">
+                <div id="progress-bar" style="background: #4caf50; width: 0%; height: 100%;"></div>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
