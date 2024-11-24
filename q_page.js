@@ -1,166 +1,193 @@
+// Variables to keep track of current question and user responses
 const questions = [
     "Little interest or pleasure in doing things",
     "Feeling down, depressed, or hopeless",
     "Trouble falling or staying asleep, or sleeping too much",
     "Feeling tired or having little energy",
     "Poor appetite or overeating",
-    "Feeling bad about yourself—or that you are a failure or have let yourself or your family down",
-    "Trouble concentrating on things, such as reading the newspaper or watching television",
-    "Moving or speaking so slowly that other people could have noticed. Or the opposite—being so fidgety or restless that you have been moving a lot more than usual",
-    "Thoughts that you would be better off dead, or of hurting yourself"
+    "Feeling bad about yourself — or that you are a failure",
+    "Trouble concentrating on things",
+    "Moving or speaking so slowly that others notice",
+    "Thoughts that you would be better off dead or hurting yourself"
 ];
+const scores = [];
+let currentQuestion = 0;
 
-let currentQuestionIndex = 0;
-let totalScore = 0;
+// DOM elements
+const questionText = document.getElementById("question-text");
+const nextButton = document.getElementById("next-btn");
+const backButton = document.getElementById("back-btn");
+const submitButton = document.getElementById("submit-btn");
+const progressBar = document.getElementById("progress-bar");
+const progressText = document.getElementById("progress-text");
 
-function nextQuestion() {
-    // Ambil opsi yang dipilih
-    const response = document.querySelector('input[name="response"]:checked');
-    const errorMessage = document.getElementById('error-message');
+// Function to update the question and progress
+//function updateQuestion() {
+//    document.getElementById("question-title").innerText = `Question ${currentQuestion + 1}`;
+//    questionText.innerText = questions[currentQuestion];
+//    backButton.style.display = currentQuestion === 0 ? "none" : "block";
+//    nextButton.style.display = currentQuestion === questions.length - 1 ? "none" : "block";
+//    submitButton.style.display = currentQuestion === questions.length - 1 ? "block" : "none";
+//    updateProgress();
+//    clearSelection();
+//}
 
-    // Jika tidak ada opsi yang dipilih, tampilkan pesan kesalahan
-    if (!response) {
-        if (!errorMessage) {
-            const error = document.createElement('p');
-            error.id = 'error-message';
-            error.innerText = "Please select an answer";
-            error.style.color = "red";
-            document.getElementById("question-container").appendChild(error);
-        }
-        return;
-    }
-
-    // Jika ada pesan kesalahan sebelumnya, hapus
-    if (errorMessage) errorMessage.remove();
-
-    // Tambahkan nilai jawaban ke total skor
-    totalScore += parseInt(response.value);
-    currentQuestionIndex++;
-
-    // Periksa apakah masih ada pertanyaan berikutnya
-    if (currentQuestionIndex < questions.length) {
-        // Perbarui teks pertanyaan dan reset form
-        document.getElementById("question-title").innerText = `Question ${currentQuestionIndex + 1}`;
-        document.getElementById("question-text").innerText = questions[currentQuestionIndex];
-        document.querySelector("#question-form").reset();
-        updateProgressBar(); // Perbarui progress bar di sini
-    } else {
-        document.getElementById('submit-btn').style.display = 'block'; // Tampilkan tombol submit
-        document.getElementById('next-btn').style.display = 'none'; // Sembunyikan tombol next
-    }
-}
-
+// Function to update the question and progress
 function updateQuestion() {
-    const questionTitle = document.getElementById("question-title");
-    const questionText = document.getElementById("question-text");
-    const optionsBox = document.querySelector(".options-box");
+    document.getElementById("question-title").innerText = `Question ${currentQuestion + 1}`;
+    questionText.innerText = questions[currentQuestion];
+    backButton.style.display = currentQuestion === 0 ? "none" : "block";
+    nextButton.style.display = currentQuestion === questions.length - 1 ? "none" : "block";
+    submitButton.style.display = currentQuestion === questions.length - 1 ? "block" : "none";
 
-    // Update pertanyaan berdasarkan indeks
-    questionTitle.textContent = `Question ${currentQuestionIndex + 1}`;
-    questionText.textContent = questions[currentQuestionIndex];
-
-
-    // Hapus opsi lama
-    optionsBox.innerHTML = "";
-
-    // Tambahkan opsi baru
-    questions[currentQuestionIndex].options.forEach((option, index) => {
-        const optionElement = document.createElement("div");
-        optionElement.className = "option";
-        optionElement.innerHTML = `
-            <input type="radio" name="option" id="option-${index}" value="${option.score}">
-            <label for="option-${index}">${option.text}</label>
-        `;
-        optionsBox.appendChild(optionElement);
+    // Clear all radio button selections
+    const options = document.querySelectorAll('input[name="response"]');
+    options.forEach(option => {
+        option.checked = false;
     });
+
+    // Restore previously selected answer if available
+    if (scores[currentQuestion] !== undefined) {
+        const savedValue = scores[currentQuestion];
+        options.forEach(option => {
+            if (parseInt(option.value, 10) === savedValue) {
+                option.checked = true;
+                nextButton.disabled = false; // Enable the Next button
+            }
+        });
+    } else {
+        nextButton.disabled = true; // Disable the Next button if no answer is selected
+    }
+
+    // Update progress based on answered questions
+    updateProgress();
 }
 
+// Function to handle progress bar 
+//function updateProgress() {
+//    const progress = ((currentQuestion + 1) / questions.length) * 100;
+//    progressBar.style.width = `${progress}%`;
+//    progressText.innerText = `${Math.round(progress)}% to complete`;
+//
+//      if (progress < 33) {
+//        progressBar.style.backgroundColor = "red"; // < 33% - Merah
+//    } else if (progress < 66) {
+//        progressBar.style.backgroundColor = "orange"; // 33% - 66% - Oranye
+//    } else if (progress < 100) {
+//        progressBar.style.backgroundColor = "#ffcc00"; // 66% - 99% - Kuning
+//    } else {
+//        progressBar.style.backgroundColor = "green"; // 100% - Hijau
+//    }
+//}
 
+// Function to handle progress bar
+function updateProgress() {
+    // Calculate progress based on the number of answered questions
+    const answeredQuestions = scores.filter(score => score !== undefined).length;
+    const progress = (answeredQuestions / questions.length) * 100;
 
-function updateProgressBar() {
-    const progressBar = document.getElementById("progress-bar");
-    const progressPercentage = document.getElementById("progress-percentage");
-    
-    // Hitung persentase progress
-    const progress = (currentQuestionIndex / questions.length) * 100;
-
-    // Update lebar progress bar
     progressBar.style.width = `${progress}%`;
+    progressText.innerText = `${Math.round(progress)}% to complete`;
 
-    
-    // Ubah warna progress bar sesuai progress
     if (progress < 33) {
-        progressBar.style.backgroundColor = '#ff4c4c'; // merah
+        progressBar.style.backgroundColor = "red"; // < 33% - Red
     } else if (progress < 66) {
-        progressBar.style.backgroundColor = '#ffcc00'; // kuning
+        progressBar.style.backgroundColor = "orange"; // 33% - 66% - Orange
+    } else if (progress < 100) {
+        progressBar.style.backgroundColor = "#ffcc00"; // 66% - 99% - Yellow
     } else {
-        progressBar.style.backgroundColor = '#4caf50'; // hijau
-    }
-
-    // Update teks persentase progress
-    progressPercentage.textContent = `${Math.round(progress)}% to complete`;
-}
-
-function prevQuestion() {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-
-        document.getElementById("question-title").innerText = `Question ${currentQuestionIndex + 1}`;
-        document.getElementById("question-text").innerText = questions[currentQuestionIndex];
-        document.querySelector("#question-form").reset();
-        updateProgressBar();
-    }
-    // Perbarui tombol navigasi (back dan next)
-    updateNavigationButtons(currentQuestionIndex, questions.length);
-}
-
-function updateNavigationButtons(currentQuestion, totalQuestions) {
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-
-    // Pastikan tombol "Previous" dinonaktifkan di pertanyaan pertama
-    if (currentQuestion === 0) {
-        prevBtn.disabled = true; // Tombol Previous dinonaktifkan
-    } else {
-        prevBtn.disabled = false; // Tombol Previous diaktifkan
-    }
-
-    // Menampilkan tombol "Next" dan "Submit" pada akhir kuis
-    if (currentQuestion === totalQuestions - 1) {
-        nextBtn.style.display = 'none'; // Sembunyikan tombol Next pada pertanyaan terakhir
-        document.getElementById('submit-btn').style.display = 'block'; // Tampilkan tombol Submit
-    } else {
-        nextBtn.style.display = 'block'; // Tampilkan tombol Next
-        document.getElementById('submit-btn').style.display = 'none'; // Sembunyikan tombol Submit
+        progressBar.style.backgroundColor = "green"; // 100% - Green
     }
 }
 
-function handleQuestionNavigation(currentQuestion, totalQuestions) {
-    const submitBtn = document.getElementById('submit-btn');
-    const nextBtn = document.getElementById('next-btn');
+// Function to clear selection when changing questions
+//function clearSelection() {
+//    const options = document.querySelectorAll('input[name="response"]');
+//    options.forEach(option => (option.checked = false));
+//}
 
-    if (currentQuestion === totalQuestions) {
-        submitBtn.style.display = 'block'; // Tampilkan tombol Submit
-        nextBtn.style.display = 'none'; // Sembunyikan tombol Next
-    } else {
-        submitBtn.style.display = 'none'; // Sembunyikan tombol Submit
-        nextBtn.style.display = 'block'; // Tampilkan tombol Next
+// Function to move to the next question
+//function nextQuestion() {
+//    const selectedOption = document.querySelector('input[name="response"]:checked');
+//    if (selectedOption) {
+//        scores[currentQuestion] = parseInt(selectedOption.value, 10);
+//        currentQuestion++;
+//        updateQuestion();
+//        nextButton.disabled = true;
+//    }
+//}
+
+// Function to move to the next question
+function nextQuestion() {
+    const selectedOption = document.querySelector('input[name="response"]:checked');
+    if (selectedOption) {
+        scores[currentQuestion] = parseInt(selectedOption.value, 10); // Save the selected answer
+        currentQuestion++;
+        updateQuestion();
     }
 }
 
-function checkSubmitButtonState() {
-    const submitBtn = document.getElementById('submit-btn');
-    const question9Input = document.querySelector('input[name="question9"]:checked');
+// Function to move to the previous question
+function previousQuestion() {
+    currentQuestion--;
+    updateQuestion();
+}
 
-    if (question9Input) {
-        submitBtn.disabled = false; // Aktifkan tombol Submit
-    } else {
-        submitBtn.disabled = true; // Nonaktifkan tombol Submit
+// Function to enable the next button when an option is selected
+//function triggerProgress() {
+//    nextButton.disabled = false;
+//}
+
+// Function to enable the Next button when an option is selected
+function triggerProgress() {
+    const selectedOption = document.querySelector('input[name="response"]:checked');
+    if (selectedOption) {
+        scores[currentQuestion] = parseInt(selectedOption.value, 10); // Save the answer immediately
+        nextButton.disabled = false; // Enable Next button
+        updateProgress(); // Update the progress bar immediately
     }
 }
 
-document.querySelectorAll('input[name="question9"]').forEach(input => {
-    input.addEventListener('change', checkSubmitButtonState);
-});
+// Function to handle submission
+function submitSurvey() {
+    const totalScore = scores.reduce((sum, score) => sum + score, 0);
+    sessionStorage.setItem("phqScore", totalScore);
+    window.location.href = "result_page.html";
+}
 
+// Function to display results on the result page
+function displayResults() {
+    const score = parseInt(sessionStorage.getItem("phqScore"), 10);
+    const scoreContainer = document.getElementById("score");
+    const resultInfo = document.getElementById("result-info");
+    const treatmentInfo = document.getElementById("treatment-info");
+    const summaryResult = document.getElementById("summary-result");
 
+    scoreContainer.innerText = score;
+
+    // Provide result interpretations
+    if (score <= 4) {
+        resultInfo.innerText = "Minimal or no depression.";
+        treatmentInfo.innerText = "No specific treatment is recommended.";
+        summaryResult.innerText = "You seem to be in a good mental state. Continue maintaining a healthy lifestyle.";
+    } else if (score <= 9) {
+        resultInfo.innerText = "Mild depression.";
+        treatmentInfo.innerText = "Consider monitoring symptoms and consulting a mental health professional.";
+        summaryResult.innerText = "Your score indicates mild depression. While it may not require immediate intervention, don't hesitate to seek support.";
+    } else if (score <= 14) {
+        resultInfo.innerText = "Moderate depression.";
+        treatmentInfo.innerText = "Consult a healthcare provider for a professional diagnosis.";
+        summaryResult.innerText = "You may be experiencing moderate depression. It’s important to reach out for support and take steps toward recovery.";
+    } else if (score <= 19) {
+        resultInfo.innerText = "Moderately severe depression.";
+        treatmentInfo.innerText = "Seek help from a mental health professional.";
+        summaryResult.innerText = "Your results indicate moderately severe depression. Professional support is highly recommended.";
+    } else {
+        resultInfo.innerText = "Severe depression.";
+        treatmentInfo.innerText = "Immediate medical attention is recommended.";
+        summaryResult.innerText = "Your score suggests severe depression. Please seek immediate help from a qualified professional.";
+    }
+}
+
+// Call the function when the page loads
+window.onload = displayResults;
