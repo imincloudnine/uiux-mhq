@@ -12,9 +12,7 @@
     font-style: normal;
 }
 
-
-
-/* Font dan Background */
+/* font and background */
 body {
     font-family: 'Fredoka', sans-serif;
     background: linear-gradient(to right, #ffffff, #ffffff);
@@ -24,7 +22,6 @@ body {
 h1, h2 {
     font-family: 'Fredoka', sans-serif;
 }
-
 
 /* Header Styling */
 .header {
@@ -36,101 +33,91 @@ h1, h2 {
     justify-content: space-between;
     position: fixed;
     z-index: 1000; /* Ensures the button stays above other content */
-  }
-  
-  body {
-    font-family: 'Fredoka', sans-serif;
-  }
-  
-  /* Navigation Bar */
-  nav {
+}
+
+/*navigation bar*/
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 0;
     justify-content: flex-start; /* Align items to the left */
-    gap: 30px; /* Add spacing between items */
-  }
-  
-  /* Logo Styling */
-  nav p {
+    gap: 30px;
+}
+
+/*logo styling*/
+nav p {
     font-size: 40px;
     font-family: 'Fredoka', sans-serif;
     font-weight: 600;
     margin: 0;
-  }
-  
-  /* Navigation Links */
-  nav ul {
+}
+
+/*navigation links*/
+nav ul {
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
-  }
-  
-  nav ul li {
+}
+
+nav ul li {
     list-style: none;
-    margin: 0 20px; /* Adjust spacing between items */
-    align-items: left;
-  }
-  
-  nav ul li a {
+    margin: 0 20px;
+    align-items: normal;
+}
+
+nav ul li a {
     text-decoration: none;
     font-family: 'Fredoka', sans-serif;
     font-size: 16px;
     font-weight: 600;
     color: black;
     transition: color 0.3s;
-  }
-  
-  /* Right Section for Login and Sign-Up */
-  .right-buttons {
+}
+
+.right-buttons {
     display: flex;
-    align-items: center;
-    gap: 20px; /* Spacing between Login and Sign up */
-    margin-left: auto; /* Pushes the right-buttons to the right */
+    gap: 20px;
     font-size: 18px;
-  }
-  
-  .right-buttons a {
+}
+
+.right-buttons a {
     text-decoration: none;
     font-weight: 600;
-    color: black;
     padding: 10px 20px;
     border-radius: 5px;
-  }
-  
-  .right-buttons a.login:hover {
-    color: #FF6E20; /* Highlight color on hover */
-  }
-  
-  .right-buttons a.signup {
-    border: 1px solid #ddd; /* Optional border for better visibility */
-    background-color: #EAF9F4; /* Light green background */
+}
+
+.right-buttons a.login:hover {
+    color: #FF6E20;
+}
+
+.right-buttons a.signup {
+    border: 1px solid #ddd;
+    background-color: #EAF9F4;
     color: black;
     padding: 7px 17px;
     border-radius: 10px;
     font-size: 18px;
     font-weight: 600;
     transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .right-buttons a.signup:hover {
-    background-color: #2DDF98; /* Darker green on hover */
-    color: white;
-  }
+}
 
+.right-buttons a.signup:hover {
+    background-color: #2DDF98;
+    color: white;
+}
 
 /* Center Question Box */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px); /* Full height minus header & footer */
+    height: calc(100vh - 100px);
 }
 
-
-/* Question Text Box*/ 
+/* Question Box */
 #question-box {
     background: rgba(255, 255, 255, 0);
     border-radius: 10px;
@@ -141,22 +128,20 @@ main {
 }
 
 #question-title {
-    font-family:  'fredoka', sans-serif;
-    font-size: 5rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: rem;
     margin-bottom: 15px;
-    display: fixed;
 }
 
 #question-text {
-    font-family: 'AsapCondensed', sans-serif;
-    font-size: 1.5rem;
-    display: fixed;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
     margin-bottom: 20px;
 }
 
-p{
-    font-family: 'AsapCondensed', sans-serif;
-    font-size: 1.5rem;
+p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
 }
 
 /* Form Styling */
@@ -168,9 +153,8 @@ p{
 
 /* Options Styling */
 .options-box {
-    display: fixed;
+    display: flex;
     flex-direction: column;
-    align-items: left;
     gap: 15px;
     background: #ffffff;
     border-radius: 8px;
@@ -178,118 +162,65 @@ p{
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     width: 650px;
     height: auto;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 .options-box .option {
-    font-size: 2rem;
-    font-family: 'AsapCondensed', sans-serif;
+    font-size: 1rem;
+    font-family: 'Rubik', sans-serif;
     width: 100%;
     text-align: left;
+    margin-bottom: 20px;
 }
 
 .options-box .option input {
     margin-right: 10px;
 }
 
-
-
-/* Tombol Carousel
-#carousel-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-#carousel-navigation button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-#carousel-navigation button {
-    width: 120px;
-    font-weight: bold;
-}
-
-#carousel-navigation button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-#carousel-navigation button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-#carousel-navigation button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-*/
-
-/* tombol */
-.triangle-btn {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.triangle-left {
-    border-width: 15px 20px 15px 0;
-    border-color: transparent gray transparent transparent;
-}
-
-.triangle-right {
-    border-width: 15px 0 15px 20px;
-    border-color: transparent transparent transparent gray;
-}
-
-.triangle-btn:disabled {
-    border-color: transparent lightgray transparent transparent; /* Buat tombol faded */
-    cursor: not-allowed;
-}
-
-
-
 /* Progress Bar */
-footer {
-    text-align: left;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-size: 1.2rem;
-    height: 90px;
+.progress-bar-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#progress-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 10px;
 }
 
 #progress-bar {
-    height: 20px;
-    transition: width 0.4s ease, background-color 0.4s ease;
+    height: 100%;
+    width: 0;
+    background-color: #00a86b;
+    border-radius: 10px;
+    transition: width 0.3s ease;
 }
 
-#progress-percentage {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px;
-    text-align: left;
+#progress-bar.complete {
+    background-color: green;
 }
+
+/* Responsif */
+@media (max-width: 768px) {
+    button {
+        padding: 8px 15px; /* Kurangi padding di layar kecil */
+        font-size: 14px; /* Perkecil ukuran font */
+    }
+}
+
 
 /* Dekorasi */
-.dec2 img { 
+.dec1 img { 
     position: absolute;
     width: 211px;
     height: 190px;
