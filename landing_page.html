@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta charset="UTF-8">
-      <title>Survei Kesehatan Mental MHQ</title>
-      <link rel="stylesheet" href="landing_page.css" type="text/css">
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- ini icon buat hamburger -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+      <link rel="stylesheet" href="styles (1).css">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
@@ -12,61 +14,88 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-      <script src="landing_page.js"></script>
-  </head>
+      <title>Asesmen Kesehatan Mental</title>
+   </head>
+   <body>
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="#" class="nav__logo">Zuurvei</a>
 
-  <body>   
-    <div class="container">
-      <div class="header">
-        <nav>
-          <p><a href="#">Zuurvei</a></p>
-          <ul class="sidebar">
-            <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-            <li><a href="#">Learn about mental health</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">About Us</a></li>
-          </ul>
-          <ul>
-            <li class="hideOnMobile"><a href="#">Learn about mental health</a></li>
-            <li class="hideOnMobile"><a href="#">Resources</a></li>
-            <li class="hideOnMobile"><a href="#">About Us</a></li>
-            <li class="menuButton" onclick = showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
-          </ul>
-        </nav>
-      </div>
-        
-      <div class="content">
-        <div class="text-box">
-          <h1>
-            Mental Health Survey <span class="highlight">PHQ-9</span>
-          </h1>
-          <h3>HOW TO FILL THE SURVEY:</h3>
-          <p><span class="number">1</span> Click the '<a>start</a>' button</p>
-          <p><span class="number">2</span> Fill in the surveys by answering in utmost honesty</p>
-        </div>
-        <div class="astronaut">
-          <img src="astro.png" alt="Astronaut floating">
-        </div>
-      </div>
-        
-      <div class="start-button">
-        <button><a href="https://kl-d-uiux-mhq.netlify.app/zuurvei">START</a></button>
-        <p>
-          By clicking the button, you agree with our
-          <a href="#" class="terms">Terms & Conditions</a>
-        </p>
-      </div>
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">
+                        <i class="ri-arrow-right-up-line"></i>
+                        <span>Home</span>
+                     </a>
+                  </li>
 
-      <div class="call">
-        <button><i class="fas fa-phone-alt"></i></button>
-      </div>
-      <div class="dec">
-        <img src="dec1.png" alt="dec">
-      </div>
-      <div class="dec2">
-        <img src="dec2.png" alt="dec2">
-      </div>
-    </div>
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">
+                        <i class="ri-arrow-right-up-line"></i>
+                        <span>Learn</span>
+                     </a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">
+                        <i class="ri-arrow-right-up-line"></i>
+                        <span>Resources</span>
+                     </a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">
+                        <i class="ri-arrow-right-up-line"></i>
+                        <span>About Us</span>
+                     </a>
+                  </li>
+               </ul>
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-large-line"></i>
+               </div>
+
+               
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line"></i>
+            </div>
+         </nav>
+      </header>
+      <main>
+         <div class="content">
+            <div class="text-box">
+              <h1>
+                Mental Health Survey <span class="highlight">PHQ-9</span>
+              </h1>
+              <h3>HOW TO FILL THE SURVEY:</h3>
+              <p><span class="number">1</span> Click the '<a>start</a>' button</p>
+              <p><span class="number">2</span> Fill in the surveys by answering in utmost honesty</p>
+            </div>
+            <div class="astronaut">
+              <img src="astro.png" alt="Astronaut floating">
+            </div>
+          </div>
+            
+          <div class="start-button">
+            <button><a href="https://kl-d-uiux-mhq.netlify.app/q_page">START</a></button>
+            <p>
+              By clicking the button, you agree with our
+              <a href="#" class="terms">Terms & Conditions</a>
+            </p>
+          </div>
     
-  </body>
+          <div class="call">
+            <button><i class="fas fa-phone-alt"></i></button>
+          </div>
+          <div class="dec">
+            <img src="dec1.png" alt="dec">
+          </div>
+          <div class="dec2">
+            <img src="dec2.png" alt="dec2">
+          </div>
+      </main>
+      
+      <script src="script (1).js"></script>
+   </body>
 </html>
