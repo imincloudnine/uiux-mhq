@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 /* Overall Container */
 
 .container {
@@ -55,6 +59,43 @@ nav p a {
 
 /* Navigation Links */
 
+.sidebar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color:rgba (255, 255, 255, 0.2);
+  backdrop-filter: blur (10px);
+  box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.sidebar li{
+  width: 100%;
+}
+.sidebar a{
+  width: 100%;
+}
+.menuButton{
+  display: none;
+}
+@media (max-width: 800px){
+  .hideOnMobile{
+    display: none;
+  }
+  .menuButton{
+    display: block;
+  }
+}
+@media (max-width: 400px) {
+  .sidebar{
+    width: 100%;
+  }
+}
 nav ul {
   display: flex;
   align-items: center;
@@ -133,10 +174,10 @@ nav ul li a {
 }
 
 .text-box {
-  max-width: 70%;
+  max-width: 100%;
   /*50%*/
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .text-box h1 {
@@ -146,7 +187,7 @@ nav ul li a {
   letter-spacing: 7px;
   margin-bottom: 84px;
   margin-left: 20px;
-  max-width: 700px;
+  max-width: 1200px;
 }
 
 .text-box h1 .highlight {
@@ -157,7 +198,7 @@ nav ul li a {
 
 .text-box h3 {
   font-family: 'Rubik', sans-serif;
-  font-size: 36px;
+  font-size: 34px;
   letter-spacing: 3px;
   margin-left: 20px;
   margin-bottom: 18px;
@@ -166,26 +207,35 @@ nav ul li a {
 
 .text-box p {
   font-family: 'Rubik', sans-serif;
-  font-size: 24px;
-  letter-spacing: 3px;
+  font-size: 19px;
+  letter-spacing: 2%;
   margin-left: 20px;
-  padding: 7px 10px;
+  padding: 8px 15px;
   background-color: #2DDF98;
   /* Green background */
   color: #000000;
   /* Black text */
   margin-bottom: 16px;
-  border-radius: 30px;
-  line-height: 51px;
+  border-radius: 25px;
+  line-height: 25px;
   display: inline-block;
+  text-align: start;
+  font-weight: 400;
+  font-style: normal;
+  align-items: center;
+}
+
+.text-box p a {
+  font-weight: 700;
+  font-style: italic;
 }
 
 .text-box p .number {
   font-size: 26px;
   font-weight: bold;
-  background-color: #FF6E20;
+  background-color: #FF9626;
   /* Orange circle for numbers */
-  color: #FFFFFF;
+  color: #000000;
   /* White number text */
   border-radius: 50%;
   width: 40px;
@@ -200,18 +250,20 @@ nav ul li a {
 /* Astronaut Image */
 
 .astronaut {
+  position: relative;
   text-align: right;
 }
 
 .astronaut img {
-  width: 100%;
+  width: 90%;
   /* Ensure the image fills its container */
   height: auto;
   /* Maintain aspect ratio */
-  max-width: 100%;
+  max-width: 90%;
   /* Optional: Add a limit to prevent it from being too large */
   display: block;
   /* Prevent extra white spaces around the image */
+  text-align: right;
 }
 
 /* Start Button Section */
@@ -319,3 +371,4 @@ nav ul li a {
   left: 4px;
   top: 890px;
 }
+
