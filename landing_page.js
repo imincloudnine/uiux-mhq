@@ -1,9 +1,15 @@
-function showSidebar(){
-    const sidebar= document.querySelector('.sidebar')
-    sidebar.style.display='flex'
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close')
+
+if(navToggle){
+   navToggle.addEventListener('click', () =>{
+      navMenu.classList.add('show-menu')
+   })
 }
 
-function hideSidebar(){
-    const sidebar= document.querySelector('.sidebar')
-    sidebar.style.display='none'
+if(navClose){
+   navClose.addEventListener('click', () =>{
+      navMenu.classList.remove('show-menu')
+   })
 }
