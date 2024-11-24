@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <title>PHQ-9 Questions</title>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <p>Zuurvei</p>
+            <ul class="nav-links">
+                <li><a href="#">Learn about mental health</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="question-box">
+            <!-- Back Button -->
+            <button id="back-btn" class="triangle-btn left" style="display: none;" onclick="previousQuestion()"></button>
+            
+            <!-- Next Button -->
+            <button id="next-btn" class="triangle-btn right" onclick="nextQuestion()" disabled></button>
+
+            <!-- Question Content -->
+            <h2 id="question-title">Question 1</h2>
+            <p id="question-description">
+                Over the last two weeks, how often have you been bothered by any of the following problems?
+            </p>
+            <p id="question-text">Little interest or pleasure in doing things</p>
+            <div class="options-box">
+                <label class="option">
+                    <input type="radio" name="response" value="0" onchange="triggerProgress()"> Not at all
+                </label>
+                <label class="option">
+                    <input type="radio" name="response" value="1" onchange="triggerProgress()"> Several days
+                </label>
+                <label class="option">
+                    <input type="radio" name="response" value="2" onchange="triggerProgress()"> More than half the days
+                </label>
+                <label class="option">
+                    <input type="radio" name="response" value="3" onchange="triggerProgress()"> Nearly every day
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button id="submit-btn" style="display:none;" onclick="submitSurvey()">Submit</button>
+
+            <!-- Navigation Buttons -->
+            <!--<button id="back-btn" style="display: none;" onclick="previousQuestion()">Back</button>
+            <button id="next-btn" onclick="nextQuestion()" disabled>Next</button>
+            <button id="submit-btn" style="display:none;" onclick="submitSurvey()">Submit</button> -->
+
+            <!-- Progress bar -->
+            <div class="progress-bar-container">
+                <p>Your progress: <span id="progress-text">0% to complete</span></p>
+                <div class="progress-bar">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="dec1">
+            <img src="dec1.png" alt="dec2">
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Zuurvei</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
