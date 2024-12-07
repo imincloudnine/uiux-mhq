@@ -242,7 +242,6 @@ a {
 }
 
 
-/* Center Question Box */
 main {
     display: flex;
     justify-content: center;
@@ -250,7 +249,6 @@ main {
     height: calc(100vh - 100px);
 }
 
-/* Question Box */
 #question-box {
     background: rgba(255, 255, 255, 0);
     border-radius: 10px;
@@ -278,14 +276,12 @@ p {
     font-size: 1rem;
 }
 
-/* Form Styling */
 #question-form label {
     display: block;
     margin: 10px 0;
     font-size: 1rem;
 }
 
-/* Options Styling */
 .options-box {
     display: flex;
     flex-direction: column;
@@ -309,9 +305,9 @@ p {
 
 .options-box .option input {
     margin-right: 10px;
+
 }
 
-/* Progress Bar */
 .progress-bar-container {
     margin-top: 20px;
     text-align: center;
@@ -344,39 +340,13 @@ p {
     background-color: green;
 }
 
-/* Button Container for Back, Next, and Submit */
 .button-container {
-    display: flex; /* Atur tombol dalam satu baris */
-    justify-content: space-between; /* Beri jarak antar tombol */
-    align-items: center; /* Rata vertikal */
-    margin-bottom: 20px; /* Beri jarak antara tombol dan progress bar */
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+    margin-bottom: 20px; 
 }
 
-/* Styling untuk tombol */
-/*
-.button-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-family: 'Fredoka', sans-serif;
-    background-color: #00a86b; Warna tombol
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.button-container button:hover {
-    background-color: #007e50; Warna tombol saat hover
-}
-
-.button-container button:disabled {
-    background-color: #ccc; Warna tombol jika disabled
-    cursor: not-allowed;
-}
-*/
-
-/* Styling for triangle buttons */
 .triangle-btn {
     width: 0;
     height: 0;
@@ -384,64 +354,61 @@ p {
     background: none;
     cursor: pointer;
     position: absolute;
-    top: 50%; /* Position at the vertical center */
-    transform: translateY(-50%); /* Adjust for centering */
+    top: 58%; 
+    transform: translateY(-50%); 
 }
 
 .triangle-btn.left {
-    border-width: 25px 40px 25px 0; /* Creates left-facing triangle */
+    border-width: 25px 40px 25px 0; 
     border-color: transparent #00a86b transparent transparent;
-    left: -40px; /* Position to the left of question box */
+    left: -40px; 
 }
 
 .triangle-btn.left:hover {
-    border-color: transparent #007e50 transparent transparent; /* Darker color on hover */
+    border-color: transparent #007e50 transparent transparent; 
 }
 
 .triangle-btn.right {
-    border-width: 25px 0 25px 40px; /* Creates right-facing triangle */
+    border-width: 25px 0 25px 40px; 
     border-color: transparent transparent transparent #00a86b;
-    right: -30px; /* Position to the right of question box */
+    right: -30px; 
 }
 
 .triangle-btn.right:hover {
     border-color: transparent transparent transparent #007e50; /* Darker color on hover */
 }
 
-/* Styling for submit button */
 .submit-btn {
-    padding: 15px 30px; /* Membuat tombol lebih besar */
-    font-size: 18px; /* Memperbesar ukuran font */
-    font-family: 'Fredoka', sans-serif;
-    background-color: #00a86b; /* Warna hijau seperti tombol lain */
+    padding: 10px 20px;
+    font-size: 16px; 
+    font-family: 'Rubik', sans-serif;
+    background-color: #135C60; 
     color: white;
     border: none;
-    border-radius: 10px; /* Membuat sudut lebih rounded */
+    border-radius: 5px;
+    text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px; /* Menambahkan sedikit jarak antara tombol dan elemen sebelumnya */
-    width: 100%; /* Tombol memenuhi lebar kontainer */
+    margin-top: 20px;
+    width: auto; 
+    margin-left: auto;
 }
 
-/* Hover state untuk submit button */
 .submit-btn:hover {
-    background-color: #007e50; /* Warna lebih gelap saat hover */
+    background-color: #007e50; 
 }
 
 .submit-btn:disabled {
-    background-color: #ccc; /* Warna jika tombol disabled */
+    background-color: #ccc; 
     cursor: not-allowed;
 }
 
 
-/* Ensure the question box has relative positioning for proper placement */
 #question-box {
     position: relative;
-    padding: 30px;
+    padding: 35px;
 }
 
-
-/* Dekorasi */
 .dec1 img { 
     position: absolute;
     width: 211px;
