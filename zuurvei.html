@@ -57,18 +57,16 @@
     </header>
     <main>
         <div id="question-box">
-            <!-- Back Button -->
             <button id="back-btn" class="triangle-btn left" style="display: none;" onclick="previousQuestion()"></button>
-            
-            <!-- Next Button -->
-            <button id="next-btn" class="triangle-btn right" onclick="nextQuestion()" disabled></button>
 
-            <!-- Question Content -->
             <h2 id="question-title">Question 1</h2>
             <p id="question-description">
                 Over the last two weeks, how often have you been bothered by any of the following problems?
             </p>
             <p id="question-text">Little interest or pleasure in doing things</p>
+
+            <button id="next-btn" class="triangle-btn right" onclick="nextQuestion()" disabled></button>
+
             <div class="options-box">
                 <label class="option">
                     <input type="radio" name="response" value="0" onchange="triggerProgress()"> Not at all
@@ -84,15 +82,8 @@
                 </label>
             </div>
 
-            <!-- Submit Button -->
-            <button id="submit-btn" style="display:none;" onclick="submitSurvey()">Submit</button>
+            <button id="submit-btn" class="submit-btn" style="display:none;" onclick="submitSurvey()">Submit</button>
 
-            <!-- Navigation Buttons -->
-            <!--<button id="back-btn" style="display: none;" onclick="previousQuestion()">Back</button>
-            <button id="next-btn" onclick="nextQuestion()" disabled>Next</button>
-            <button id="submit-btn" style="display:none;" onclick="submitSurvey()">Submit</button> -->
-
-            <!-- Progress bar -->
             <div class="progress-bar-container">
                 <p>Your progress: <span id="progress-text">0% to complete</span></p>
                 <div class="progress-bar">
