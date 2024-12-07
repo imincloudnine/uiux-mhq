@@ -13,6 +13,7 @@ if(navClose){
       navMenu.classList.remove('show-menu')
    })
 }
+
 // Variables to keep track of current question and user responses
 const questions = [
     "Little interest or pleasure in doing things",
@@ -37,17 +38,6 @@ const progressBar = document.getElementById("progress-bar");
 const progressText = document.getElementById("progress-text");
 
 // Function to update the question and progress
-//function updateQuestion() {
-//    document.getElementById("question-title").innerText = `Question ${currentQuestion + 1}`;
-//    questionText.innerText = questions[currentQuestion];
-//    backButton.style.display = currentQuestion === 0 ? "none" : "block";
-//    nextButton.style.display = currentQuestion === questions.length - 1 ? "none" : "block";
-//    submitButton.style.display = currentQuestion === questions.length - 1 ? "block" : "none";
-//    updateProgress();
-//    clearSelection();
-//}
-
-// Function to update the question and progress
 function updateQuestion() {
     document.getElementById("question-title").innerText = `Question ${currentQuestion + 1}`;
     questionText.innerText = questions[currentQuestion];
@@ -67,33 +57,16 @@ function updateQuestion() {
         options.forEach(option => {
             if (parseInt(option.value, 10) === savedValue) {
                 option.checked = true;
-                nextButton.disabled = false; // Enable the Next button
+                nextButton.disabled = false;
             }
         });
     } else {
-        nextButton.disabled = true; // Disable the Next button if no answer is selected
+        nextButton.disabled = true;
     }
 
     // Update progress based on answered questions
     updateProgress();
 }
-
-// Function to handle progress bar 
-//function updateProgress() {
-//    const progress = ((currentQuestion + 1) / questions.length) * 100;
-//    progressBar.style.width = `${progress}%`;
-//    progressText.innerText = `${Math.round(progress)}% to complete`;
-//
-//      if (progress < 33) {
-//        progressBar.style.backgroundColor = "red"; // < 33% - Merah
-//    } else if (progress < 66) {
-//        progressBar.style.backgroundColor = "orange"; // 33% - 66% - Oranye
-//    } else if (progress < 100) {
-//        progressBar.style.backgroundColor = "#ffcc00"; // 66% - 99% - Kuning
-//    } else {
-//        progressBar.style.backgroundColor = "green"; // 100% - Hijau
-//    }
-//}
 
 // Function to handle progress bar
 function updateProgress() {
@@ -113,30 +86,20 @@ function updateProgress() {
     } else {
         progressBar.style.backgroundColor = "green"; // 100% - Green
     }
+
+    // Disable submit button until Question 9 is answered
+    if (scores[8] === undefined) {
+        submitButton.disabled = true; 
+    } else {
+        submitButton.disabled = false;
+    }
 }
-
-// Function to clear selection when changing questions
-//function clearSelection() {
-//    const options = document.querySelectorAll('input[name="response"]');
-//    options.forEach(option => (option.checked = false));
-//}
-
-// Function to move to the next question
-//function nextQuestion() {
-//    const selectedOption = document.querySelector('input[name="response"]:checked');
-//    if (selectedOption) {
-//        scores[currentQuestion] = parseInt(selectedOption.value, 10);
-//        currentQuestion++;
-//        updateQuestion();
-//        nextButton.disabled = true;
-//    }
-//}
 
 // Function to move to the next question
 function nextQuestion() {
     const selectedOption = document.querySelector('input[name="response"]:checked');
     if (selectedOption) {
-        scores[currentQuestion] = parseInt(selectedOption.value, 10); // Save the selected answer
+        scores[currentQuestion] = parseInt(selectedOption.value, 10); 
         currentQuestion++;
         updateQuestion();
     }
@@ -148,18 +111,13 @@ function previousQuestion() {
     updateQuestion();
 }
 
-// Function to enable the next button when an option is selected
-//function triggerProgress() {
-//    nextButton.disabled = false;
-//}
-
 // Function to enable the Next button when an option is selected
 function triggerProgress() {
     const selectedOption = document.querySelector('input[name="response"]:checked');
     if (selectedOption) {
         scores[currentQuestion] = parseInt(selectedOption.value, 10); // Save the answer immediately
-        nextButton.disabled = false; // Enable Next button
-        updateProgress(); // Update the progress bar immediately
+        nextButton.disabled = false;
+        updateProgress(); 
     }
 }
 
@@ -206,3 +164,4 @@ function displayResults() {
 
 // Call the function when the page loads
 window.onload = displayResults;
+
